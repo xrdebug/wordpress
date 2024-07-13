@@ -1,26 +1,95 @@
-# %namespace%
+# xrDebug WordPress Plugin
 
 > 🔔 Subscribe to the [newsletter](https://chv.to/chevere-newsletter) to don't miss any update regarding Chevere.
 
-![Chevere](chevere.svg)
+<a href="https://xrdebug.com"><img alt="xrDebug" src="xr.svg" width="40%"></a>
 
-[![Build](https://img.shields.io/github/actions/workflow/status/chevere/reponame/test.yml?branch=%branch%&style=flat-square)](https://github.com/chevere/reponame/actions)
-![Code size](https://img.shields.io/github/languages/code-size/chevere/reponame?style=flat-square)
-[![Apache-2.0](https://img.shields.io/github/license/chevere/reponame?style=flat-square)](LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/xrdebug/wordpress/test.yml?branch=0.1&style=flat-square)](https://github.com/xrdebug/wordpress/actions)
+![Code size](https://img.shields.io/github/languages/code-size/xrdebug/wordpress?style=flat-square)
+[![Apache-2.0](https://img.shields.io/github/license/xrdebug/wordpress?style=flat-square)](LICENSE)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%209-blueviolet?style=flat-square)](https://phpstan.org/)
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fchevere%2Freponame%2F%branch%)](https://dashboard.stryker-mutator.io/reports/github.com/chevere/reponame/%branch%)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=chevere_reponame&metric=alert_status)](https://sonarcloud.io/dashboard?id=chevere_reponame)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_reponame&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=chevere_reponame)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_reponame&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=chevere_reponame)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_reponame&metric=security_rating)](https://sonarcloud.io/dashboard?id=chevere_reponame)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=chevere_reponame&metric=coverage)](https://sonarcloud.io/dashboard?id=chevere_reponame)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=chevere_reponame&metric=sqale_index)](https://sonarcloud.io/dashboard?id=chevere_reponame)
-[![CodeFactor](https://www.codefactor.io/repository/github/chevere/reponame/badge)](https://www.codefactor.io/repository/github/chevere/reponame)
+## Summary
 
-## Documentation
+WordPress plugin for debugging with [xrDebug](https://xrdebug.com). This plugin uses the [xrDebug PHP library](https://github.com/xrdebug/php) and it adds WordPress-specific features.
 
-Documentation is available at [chevere.org](https://chevere.org/).
+## Installation
+
+1. Go to [latest release](https://github.com/xrdebug/wordpress/releases/latest) and download `xrdebug.zip`.
+2. Go to your WordPress admin panel, click on `Plugins` and then `Add New`.
+3. Click on `Upload Plugin` and select the downloaded zip file.
+4. Click on `Install Now` and then `Activate`.
+
+## Debug Helpers
+
+In addition to the [PHP xrDebug helpers](https://github.com/xrdebug/php?tab=readme-ov-file#debug-helpers) this plugin adds the following WordPress-specific debug helpers.
+
+### wp_xri
+
+Use function `wp_xri` to access the xrDebug WordPress inspector instance, which can be used to control the WordPress inspector logging features.
+
+| Method                      | Toggles         |
+| --------------------------- | --------------- |
+| [showErrors](#showerrors)   | Showing errors  |
+| [showHooks](#showhooks)     | Showing hooks   |
+| [showMails](#showmails)     | Showing emails  |
+| [showQueries](#showqueries) | Showing queries |
+
+#### showErrors
+
+Use method `showErrors` to show the PHP errors during the WordPress request.
+
+```php
+wp_xri()->showErrors();
+```
+
+To stop showing errors pass `FALSE` as argument.
+
+```php
+wp_xri()->showErrors(FALSE);
+```
+
+#### showHooks
+
+Use method `showHooks` to show the WordPress hooks executed during the WordPress request.
+
+```php
+wp_xri()->showHooks();
+```
+
+To stop showing hooks pass `FALSE` as argument.
+
+```php
+wp_xri()->showHooks(FALSE);
+```
+
+#### showMails
+
+Use method `showMails` to show the emails sent during the WordPress request.
+
+```php
+wp_xri()->showMails();
+```
+
+To stop showing emails pass `FALSE` as argument.
+
+```php
+wp_xri()->showMails(FALSE);
+```
+
+#### showQueries
+
+Use method `showQueries` to show the SQL queries executed during the WordPress request.
+
+```php
+wp_xri()->showQueries();
+```
+
+To stop showing queries pass `FALSE` as argument.
+
+```php
+wp_xri()->showQueries(FALSE);
+```
 
 ## License
 

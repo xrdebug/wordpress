@@ -1,30 +1,44 @@
 {
-    "name": "chevere/reponame",
-    "description": "A chevere reponame package",
-    "homepage": "https://chevere.org",
-    "type": "library",
+    "name": "xrdebug/wordpress",
+    "type": "wordpress-plugin",
+    "description": "Debug WordPress with xrDebug",
+    "homepage": "https://github.com/xrdebug/wordpress",
+    "keywords": [
+        "chevere",
+        "dump",
+        "debug",
+        "debugging",
+        "xrdebug"
+    ],
     "license": "Apache-2.0",
     "authors": [
         {
             "name": "Rodolfo Berrios",
             "email": "rodolfo@chevere.org",
-            "homepage": "https://chevere.org"
+            "homepage": "https://rodolfoberrios.com"
         }
     ],
     "require": {
-        "chevere/chevere": "^4.0.0.x-dev"
+        "php": "^8.1",
+        "automattic/jetpack-autoloader": "^2.11",
+        "doctrine/sql-formatter": "^1.4",
+        "xrdebug/php": "^2.0.2"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.11",
-        "phpunit/phpunit": "^10.5",
-        "symplify/easy-coding-standard": "^12.2"
+        "bamarni/composer-bin-plugin": "^1.8.2",
+        "composer/installers": "^1.12",
+        "phpstan/extension-installer": "^1.3",
+        "phpstan/phpstan": "^1.9",
+        "phpunit/phpunit": "^9.5",
+        "symplify/easy-coding-standard": "^11.1",
+        "szepeviktor/phpstan-wordpress": "^1.3"
     },
     "autoload": {
         "files": [
             "src/functions.php"
         ],
         "psr-4": {
-            "Chevere\\%namespace%\\": "src/"
+            "Chevere\\xrDebug\\WordPress\\": "src/"
         }
     },
     "autoload-dev": {
@@ -33,8 +47,24 @@
         }
     },
     "config": {
+        "platform": {
+            "php": "8.1.28"
+        },
         "optimize-autoloader": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "automattic/jetpack-autoloader": true,
+            "bamarni/composer-bin-plugin": true,
+            "composer/installers": true,
+            "phpstan/extension-installer": false
+        },
+        "extra": {
+            "bamarni-bin": {
+                "bin-links": false,
+                "target-directory": "vendor-bin",
+                "forward-command": true
+            }
+        }
     },
     "scripts": {
         "all": [
@@ -47,7 +77,7 @@
             "Composer\\Config::disableProcessTimeout",
             "infection --only-covered -j10"
         ],
-        "infection-filter": "sh -c 'sh -c \"composer infection -- --filter=$0 --test-framework-options=--filter=$1\"' $1 $2",
+        "infection-filter": "sh -c 'sh -c \"composer infection -- --filter=$0 --test-framework-options=--filter=$0\"' $1",
         "phpstan": "vendor/bin/phpstan analyze src/ --memory-limit 512M --level 9",
         "test": [
             "Composer\\Config::disableProcessTimeout",
@@ -58,20 +88,16 @@
             "vendor/bin/phpunit -c phpunit-coverage.xml"
         ],
         "cs-update": "mkdir -p .ecs && cd .ecs && curl -O https://raw.githubusercontent.com/chevere/code-style/main/.ecs/ecs-chevere.php",
-        "cs-fix": "vendor/bin/ecs --config='.ecs/ecs.php' check src --fix",
-        "open-coverage": "open build/logs/html/index.html",
-        "open-infection": "open build/logs/html/infection.html"
+        "cs-fix": "vendor/bin/ecs --config='.ecs/ecs.php' check src --fix"
     },
     "scripts-descriptions": {
         "all": "Runs all checks",
         "infection": "Runs infection",
-        "infection-filter": "Runs infection filtered (args infection-filter phpunit-filter)",
+        "infection-filter": "Runs infection (filtered)",
         "phpstan": "Runs phpstan",
         "test": "Run test suite",
         "test-coverage": "Run test suite (coverage)",
         "cs-update": "Update Chevere code style definition",
-        "cs-fix": "Update Chevere code style definition",
-        "open-coverage": "Open code coverage report",
-        "open-infection": "Open infection report"
+        "cs-fix": "Update Chevere code style definition"
     }
 }
