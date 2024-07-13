@@ -1,0 +1,65 @@
+name: Deploy for WordPress
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    name: Build release
+    runs-on: ubuntu-latest
+    env:
+      php: "8.2"
+      tools: composer
+      ini-values: default_charset='UTF-8'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.php }}
+          ini-values: ${{ env.ini-values }}
+          coverage: pcov
+          tools: ${{ env.tools }}
+        env:
+          fail-fast: true
+      - name: Build
+        run: |
+          composer install -o --no-dev --ignore-platform-reqs
+      - name: Install WP-CLI
+        run: |
+          curl -sO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+          chmod +x wp-cli.phar
+          mv wp-cli.phar /usr/local/bin/wp
+      - name: Install dist-archive-command
+        run: |
+          wp package install wp-cli/dist-archive-command --allow-root
+      - name: Archive WordPress plugin
+        run: |
+          wp dist-archive . . --plugin-dirname=xrdebug --filename-format={name} --format=zip --allow-root
+      - name: Cache artifacts
+        uses: actions/cache/save@v4
+        with:
+          path: xrdebug.zip
+          key: ${{ runner.os }}-${{ github.sha }}
+  upload:
+    name: Upload release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs:
+      - build
+    steps:
+      - name: Restore artifacts
+        uses: actions/cache/restore@v4
+        with:
+          fail-on-cache-miss: true
+          path: xrdebug.zip
+          key: ${{ runner.os }}-${{ github.sha }}
+      - name: Upload artifacts
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          omitBodyDuringUpdate: true
+          artifacts: >
+            xrdebug.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
