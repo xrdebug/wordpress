@@ -4,9 +4,9 @@
 
 <a href="https://xrdebug.com"><img alt="xrDebug" src="xr.svg" width="40%"></a>
 
-[![Build](https://img.shields.io/github/actions/workflow/status/xrdebug/wordpress/test.yml?branch=0.1&style=flat-square)](https://github.com/xrdebug/wordpress/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/xrdebug/wordpress/deploy-for-wordpress.yml?style=flat-square)](https://github.com/xrdebug/xrdebug/actions)
 ![Code size](https://img.shields.io/github/languages/code-size/xrdebug/wordpress?style=flat-square)
-[![Apache-2.0](https://img.shields.io/github/license/xrdebug/wordpress?style=flat-square)](LICENSE)
+[![Apache-2.0](https://img.shields.io/github/license/xrdebug/wordpress?style=flat-square&1720883255844)](LICENSE)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%209-blueviolet?style=flat-square)](https://phpstan.org/)
 
 ## Summary
