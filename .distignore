@@ -1,0 +1,17 @@
+/.ecs
+/.git
+/.github
+/.phpunit.result.cache
+/.vscode
+/build
+/tests
+.DS_Store
+.distignore
+.gitattributes
+.gitignore
+composer.lock
+infection.json.dist
+phpstan.neon
+phpunit-coverage.xml
+phpunit.xml
+sonar-project.properties
