@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Description: Debug WordPress with xrDebug
  * Version: 1.0.0
  * Requires PHP: 8.1
- * Tested up to: 6.5
+ * Tested up to: 6.6
  * Author: xrDebug
  * Author URI: https://xrdebug.com
  * License: Apache-2.0
