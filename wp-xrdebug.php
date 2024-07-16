@@ -11,7 +11,7 @@ declare(strict_types=1);
  * Tested up to: 6.6
  * Author: xrDebug
  * Author URI: https://xrdebug.com
- * License: Apache-2.0
+ * License: MIT
  */
 
 use Chevere\xrDebug\PHP\Xr;

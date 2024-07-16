@@ -4,9 +4,9 @@ Donate link: https://github.com/sponsors/rodber
 Tags: development, debugging, debug, developer
 Requires PHP: 8.1
 Requires at least: 5.9
-Tested up to: 6.5
+Tested up to: 6.6
 Stable tag: 1.0.0
-License: Apache-2.0
+License: MIT
 
 Debug WordPress with xrDebug.
 

@@ -10,7 +10,7 @@
         "debugging",
         "xrdebug"
     ],
-    "license": "Apache-2.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "Rodolfo Berrios",

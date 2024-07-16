@@ -6,7 +6,7 @@
 
 [![Build](https://img.shields.io/github/actions/workflow/status/xrdebug/wordpress/deploy-for-wordpress.yml?style=flat-square)](https://github.com/xrdebug/xrdebug/actions)
 ![Code size](https://img.shields.io/github/languages/code-size/xrdebug/wordpress?style=flat-square)
-[![Apache-2.0](https://img.shields.io/github/license/xrdebug/wordpress?style=flat-square&1720883255844)](LICENSE)
+[![MIT](https://img.shields.io/github/license/xrdebug/wordpress?style=flat-square&1721160499522)](LICENSE)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%209-blueviolet?style=flat-square)](https://phpstan.org/)
 
 ## Summary
@@ -95,6 +95,4 @@ wp_xri()->showQueries(FALSE);
 
 Copyright [Rodolfo Berrios A.](https://rodolfoberrios.com/)
 
-Chevere is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for the full license text.
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+This software is licensed under the MIT License. See [LICENSE](LICENSE) for the full license text.
