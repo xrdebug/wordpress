@@ -1,7 +1,5 @@
 # xrDebug WordPress Plugin
 
-> 🔔 Subscribe to the [newsletter](https://chv.to/chevere-newsletter) to don't miss any update regarding Chevere.
-
 <a href="https://xrdebug.com"><img alt="xrDebug" src="xr.svg" width="40%"></a>
 
 [![Build](https://img.shields.io/github/actions/workflow/status/xrdebug/wordpress/deploy-for-wordpress.yml?style=flat-square)](https://github.com/xrdebug/xrdebug/actions)
