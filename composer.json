@@ -22,7 +22,7 @@
         "php": "^8.1",
         "automattic/jetpack-autoloader": "^2.11",
         "doctrine/sql-formatter": "^1.4",
-        "xrdebug/php": "^2.0.2"
+        "xrdebug/php": "^3.0.0"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.8.2",
